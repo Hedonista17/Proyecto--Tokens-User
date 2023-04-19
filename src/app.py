@@ -7,8 +7,8 @@ from flask_migrate import Migrate
 from flask_swagger import swagger
 from flask_cors import CORS
 from api.utils import APIException, generate_sitemap
-from api.models import db
-from api.routes import api
+from api.models.index import db, User
+import api.domain.user.route as api_user
 from api.admin import setup_admin
 from api.commands import setup_commands
 from flask_jwt_extended import create_access_token, get_jwt_identity, jwt_required, JWTManager
@@ -44,7 +44,7 @@ setup_admin(app)
 setup_commands(app)
 
 # Add all endpoints form the API with a "api" prefix
-app.register_blueprint(api, url_prefix='/api')
+app.register_blueprint(api_user.api, url_prefix='/api/user')
 
 # Handle/serialize errors like a JSON object
 @app.errorhandler(APIException)
