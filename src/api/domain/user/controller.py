@@ -11,6 +11,10 @@ def verificar_usuario(new_user):  # funcion de verificaciones para poder usarla 
       return{ "msg" : "El campo email debe estar completo", "error": True,"status": 400}
    if new_user['password'] is  None or new_user['password'] == "":
       return{ "msg" : "El campo contraseña no puede estar vacío", "error": True,"status": 400}
+   if len(new_user['password']) < 8:
+      return {"msg" : "El campo contraseña no debe ser inferior a  8 caracteres", "error": True,"status":422 }
+   if len(new_user['password']) > 20 :
+      return {"msg" : "El campo contraseña no puede ser superior a 20 caracteres", "error": True,"status": 422}
    return new_user
 
 
@@ -25,7 +29,7 @@ def create_user(new_user):
 
 def login(body):
    correct_user = verificar_usuario(body)
-   if correct_user.get("error") is not None:
+   if correct_user.get('error') is not None:
       return correct_user
    user = Repository.get_user_by_email(body['email'])
    if user is None :

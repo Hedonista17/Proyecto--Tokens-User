@@ -23,6 +23,7 @@ export const Login = props => {
     const handleSubmit = async (event) =>{
 		event.preventDefault();
 		await loginUser(registro)
+		
 
 	}
 
@@ -36,15 +37,15 @@ export const Login = props => {
 					<h5 className="text-center">Iniciar Sesión en Pastafarismo</h5>
 					<div className="col">
 						<label htmlFor="exampleFormControlInput1" className="form-label">Nombre de Usuario</label>
-						<input type="text" className="form-control rounded-0"  required />
+						<input type="text" name="username" className="form-control rounded-0"  required />
 					</div>
 					<div className="col">
 						<label htmlFor="exampleFormControlInput1" className="form-label">Dirección Email</label>
-						<input type="email" className="form-control rounded-0" placeholder="nombre@ejemplo.com" required />
+						<input type="email" name="email" className="form-control rounded-0" placeholder="nombre@ejemplo.com" required />
 					</div>
 					<div className="col">
 						<label htmlFor="inputPassword6" className="form-label">Contraseña</label>
-						<input type="password" className="form-control rounded-0" aria-labelledby="passwordHelpInline" placeholder="Debe tener entre 8-20 caracteres." required />
+						<input type="password" name="password" className="form-control rounded-0" aria-labelledby="passwordHelpInline" placeholder="Debe tener entre 8-20 caracteres." required />
 					</div>
 					
 						<input type="submit" value ="Iniciar Sesión" className="btn btn-dark mx-3 my-1  rounded-0"></input>

@@ -17,12 +17,14 @@ export const Registro = () => {
 
 
 	const handleChange = ({target}) =>{                           // el valor que se escriba en el form se sustituye en el campo name de cada apartado del objeto,
-		setRegistro({...registro ,[target.name]:target.value}) // se setean los cambios en el usestate de registro                                                    
+		setRegistro({...registro ,[target.name]:target.value})     // se setean los cambios en el usestate de registro   
+		                                                                                   
 	}	
 
     const handleSubmit = async (event) =>{
 		event.preventDefault();
 		await registerUser(registro)
+	    window.location.reload()
 
 	}
 

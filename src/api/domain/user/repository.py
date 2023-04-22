@@ -8,3 +8,4 @@ def create_user(username,email,password):
 
 def get_user_by_email(email):
    return User.query.filter_by(email = email).one()  # solo trae uno no trae la lista entera de correos
+

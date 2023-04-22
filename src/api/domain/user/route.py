@@ -32,9 +32,8 @@ def login_user():
     body = request.get_json()
     token = Controller.login(body)
     if token.get('token'):
-        return jsonify(token),200
-    return jsonify(token),token['status']
-
+        return jsonify(token), 200
+    return jsonify(token), token['status']
 
 
 @api.route('/private', methods =['GET'])
